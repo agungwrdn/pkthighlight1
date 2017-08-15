@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/HargaKomoditas"
+            android:icon="@drawable/price"
+            android:title="Harga Komoditas" />
+        <item
+            android:id="@+id/DownloadDaily"
+            android:icon="@drawable/file"
+            android:title="Download Daily Performance" />
+    </group>
+</menu>

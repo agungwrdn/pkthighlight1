@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">PKT HIGHLIGHT</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <string name="emailSalah">Maaf Email Atau Password anda salah</string>
+    <string name="login_error_title">Checking</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="error_incorrect_email_pass">Provide correct email and password with more than 6 characters.</string>
+    <string name="error_fields_empty">Please make sure you enter display name, email and password!</string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+</resources>

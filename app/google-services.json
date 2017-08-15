@@ -1,0 +1,105 @@
+{
+  "project_info": {
+    "project_number": "492675366459",
+    "firebase_url": "https://pkt-highlight.firebaseio.com",
+    "project_id": "pkt-highlight",
+    "storage_bucket": "pkt-highlight.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:492675366459:android:76d3c01618780c49",
+        "android_client_info": {
+          "package_name": "com.pupukkaltim.pkthighlight"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "492675366459-cm62a31ttksk918vqunjrvn0poko9aqv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.pupukkaltim.pkthighlight",
+            "certificate_hash": "f239141adfdacd00a837c43b55df4302f7e06c53"
+          }
+        },
+        {
+          "client_id": "492675366459-vpofcp0sir2ba4scg0gc8k53fgo5mqu3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDqs6Z9FrMSOzPJkzq9O34CUbYIUt18oOk"
+        },
+        {
+          "current_key": "AIzaSyC4lw-2ai6X8xTdi2s_GWr9Dj7plwKWhls"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "492675366459-vpofcp0sir2ba4scg0gc8k53fgo5mqu3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:492675366459:android:552ac10c853a0f68",
+        "android_client_info": {
+          "package_name": "com.pupukkaltim.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "492675366459-c95kbdfgkvsfibff8ndruqf944tbn048.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.pupukkaltim.myapplication",
+            "certificate_hash": "f239141adfdacd00a837c43b55df4302f7e06c53"
+          }
+        },
+        {
+          "client_id": "492675366459-vpofcp0sir2ba4scg0gc8k53fgo5mqu3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDqs6Z9FrMSOzPJkzq9O34CUbYIUt18oOk"
+        },
+        {
+          "current_key": "AIzaSyC4lw-2ai6X8xTdi2s_GWr9Dj7plwKWhls"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "492675366459-vpofcp0sir2ba4scg0gc8k53fgo5mqu3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

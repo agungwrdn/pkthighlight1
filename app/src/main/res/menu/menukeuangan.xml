@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/LR"
+            android:icon="@drawable/graph"
+            android:title="Laba/Rugi" />
+        <item
+            android:id="@+id/Kas"
+            android:icon="@drawable/dollar"
+            android:title="Posisi Kas" />
+        <item
+            android:id="@+id/Pinjaman"
+            android:icon="@drawable/borrow"
+            android:title="Pinjaman" />
+        <item
+            android:id="@+id/HPP"
+            android:icon="@drawable/file"
+            android:title="HPP" />
+    </group>
+</menu>

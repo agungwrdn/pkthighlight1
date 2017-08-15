@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/TonaseProduksi"
+            android:icon="@drawable/graph"
+            android:title="Tonase Produksi" />
+        <item
+            android:id="@+id/KonsumsiGas"
+            android:icon="@drawable/gas"
+            android:title="Konsumsi Gas" />
+        <item
+            android:id="@+id/OnStream"
+            android:icon="@drawable/onstream"
+            android:title="On Stream Days" />
+        <item
+            android:id="@+id/DownTime"
+            android:icon="@drawable/shedule"
+            android:title="Down Time Pabrik" />
+    </group>
+</menu>
