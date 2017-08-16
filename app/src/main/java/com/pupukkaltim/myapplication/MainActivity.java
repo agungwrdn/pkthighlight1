@@ -2,12 +2,7 @@ package com.pupukkaltim.myapplication;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -31,19 +26,23 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mAuth = FirebaseAuth.getInstance();
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        mAuth = FirebaseAuth.getInstance();
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
+        if (mAuth.getCurrentUser() == null) {
+            Intent i = new Intent(this, LoginActivity.class);
+            startActivity(i);
+            finish();
+        }
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
         change(R.id.Produksi);
     }
 
@@ -77,19 +76,22 @@ public class MainActivity extends AppCompatActivity
         Fragment fragment = null;
         if (id == R.id.Produksi) {
             fragment = new ProduksiFragment();
+            getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment).commitNow();
         } else if(id == R.id.Keuangan){
             fragment = new KeuanganFragment();
+            getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment).commitNow();
         } else if(id == R.id.lain){
             fragment = new LainFragment();
+            getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment).commitNow();
         } else if(id == R.id.Penjualan){
             fragment = new PenjualanFragment();
+            getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment).commitNow();
         } else {
             Intent dia = new Intent(MainActivity.this, LoginActivity.class);
             startActivity(dia);
             mAuth.signOut();
         }
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment).commitNow();
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
     }

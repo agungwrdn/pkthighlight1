@@ -12,9 +12,16 @@ import android.support.v7.widget.ShareActionProvider;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.github.barteksc.pdfviewer.PDFView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.pupukkaltim.myapplication.R;
 
 import java.io.BufferedInputStream;
@@ -22,6 +29,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 import static com.github.barteksc.pdfviewer.util.Util.toByteArray;
 
@@ -32,6 +41,11 @@ public class HPPFragment extends Fragment {
     private PDFView pdfViewa;
     private ProgressDialog pDialoga;
     boolean connected = false;
+    private FirebaseDatabase mDB;
+    private DatabaseReference mDBuser;
+    private TextView watermark;
+    private FirebaseAuth mAuth;
+    private TextView date;
     public HPPFragment() {
         // Required empty public constructor
     }
@@ -43,6 +57,11 @@ public class HPPFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragmentview, container, false);
         pdfViewa = (PDFView) view.findViewById(R.id.pdfView);
+        mDB = FirebaseDatabase.getInstance();
+        mAuth = FirebaseAuth.getInstance();
+        mDBuser = mDB.getReference().child("users");
+        date = (TextView) view.findViewById(R.id.dateTime);
+        watermark = (TextView) view.findViewById(R.id.watermark);
         ConnectivityManager connectivityManager = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
         if(connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
                 connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
@@ -55,6 +74,8 @@ public class HPPFragment extends Fragment {
             pdfViewa.setVisibility(View.GONE);
             Toast.makeText(getActivity().getBaseContext(), "Connection Lost !!", Toast.LENGTH_LONG).show();
         }
+
+        retrieveData();
         return view;
     }
     private class DownloadFileFromURL extends AsyncTask<String, Void, byte[]> {
@@ -98,6 +119,25 @@ public class HPPFragment extends Fragment {
             pDialoga.dismiss();
         }
 
-
     }
+
+    private void retrieveData() {
+        DatabaseReference userName = mDBuser.child(mAuth.getCurrentUser().getUid()).child("username");
+        userName.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                String username = dataSnapshot.getValue(String.class);
+                watermark.setText(username);
+                String formattedDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Calendar.getInstance().getTime());
+                date.setText(formattedDate);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
+
 }

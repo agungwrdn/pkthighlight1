@@ -42,29 +42,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     private void onLoginUser() {
-        if(getUserEmail().equals("admin@pkt.com")){
-            logInAdmin(getUserEmail(), getUserPassword());
-        } else if(!getUserEmail().equals("") && !getUserPassword().equals("")){
+
+        if(!getUserEmail().equals("") && !getUserPassword().equals("")){
             logIn(getUserEmail(), getUserPassword());
         }  else {
             showFieldsAreRequired();
         }
-    }
-
-    private void logInAdmin(String getUserEmail, String getUserPassword) {
-        showAlertDialog("Log In...",false);
-
-        mAuth.signInWithEmailAndPassword(getUserEmail, getUserPassword).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                dismissAlertDialog();
-                if(task.isSuccessful()){
-                    goToMainAdminActivity();
-                }else {
-                    showAlertDialog(task.getException().getMessage(),true);
-                }
-            }
-        });
     }
 
     private void logIn(String getUserEmail, String getUserPassword) {
@@ -84,13 +67,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     private void goToMainActivity() {
-        Intent intent = new Intent(this, MainActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        startActivity(intent);
-    }
-
-    private void goToMainAdminActivity() {
         Intent intent = new Intent(this, MainActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
